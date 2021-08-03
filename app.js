@@ -62,7 +62,7 @@ const outputFormatForDistricts = (dbQuery) => {
 
 function authenticateToken(request, response, next) {
   let jwtToken;
-  const headerLine = request.headers["Authorization"];
+  const headerLine = request.headers["authorization"];
   if (headerLine !== undefined) {
     jwtToken = headerLine.split(" ")[1];
     if (jwtToken !== undefined) {
