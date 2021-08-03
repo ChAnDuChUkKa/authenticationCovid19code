@@ -61,7 +61,7 @@ const outputFormatForDistricts = (dbQuery) => {
 };
 
 function authenticateToken(request, response, next) {
-  let jwtToken;
+  let jwtToken=null;
   const headerLine = request.headers["authorization"];
   if (headerLine !== undefined) {
     jwtToken = headerLine.split(" ")[1];
@@ -78,7 +78,9 @@ function authenticateToken(request, response, next) {
       response.status(401);
       response.send("Invalid JWT Token");
     }
-  }
+  }else{
+    response.status(401);
+      response.send("Invalid JWT Token");
 }
 
 //creating API 1
